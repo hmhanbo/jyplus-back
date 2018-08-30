@@ -1,0 +1,50 @@
+server:
+  port: 8080
+
+
+spring:
+    datasource:
+        name: mytest
+        type: com.alibaba.druid.pool.DruidDataSource
+        #druid�������
+        druid:
+          #���ͳ�����ص�filters
+          filters: stat
+          driver-class-name: com.mysql.jdbc.Driver
+          #��������
+          url: jdbc:mysql://127.0.0.1:3306/mytest?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+          username: root
+          password: zgsxhm
+          #���ó�ʼ����С/��С/���
+          initial-size: 1
+          min-idle: 1
+          max-active: 20
+          #��ȡ���ӵȴ���ʱʱ��
+          max-wait: 60000
+          #�����ý���һ�μ�⣬�����Ҫ�رյĿ�������
+          time-between-eviction-runs-millis: 60000
+          #һ�������ڳ�����С�����ʱ��
+          min-evictable-idle-time-millis: 300000
+          validation-query: SELECT 'x'
+          test-while-idle: true
+          test-on-borrow: false
+          test-on-return: false
+          #��PSCache����ָ��ÿ��������PSCache�Ĵ�С��oracle��Ϊtrue��mysql��Ϊfalse���ֿ�ֱ�϶��Ƽ�����Ϊfalse
+          pool-prepared-statements: false
+          max-pool-prepared-statement-per-connection-size: 20
+
+mybatis:
+  mapper-locations: classpath:mapper/*/*.xml
+  type-aliases-package: com.jys.jyplus
+
+
+
+#
+##pagehelper
+#pagehelper:
+#    helperDialect: mysql
+#    reasonable: true
+#    supportMethodsArguments: true
+#    params: count=countSql
+#    returnPageInfo: check
+#per-connection-size=20

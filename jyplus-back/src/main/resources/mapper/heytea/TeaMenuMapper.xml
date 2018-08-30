@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jys.jyplus.heytea.dao.TeaMenuDao" >
+    <resultMap id="BaseResultMap" type="com.jys.jyplus.heytea.vo.TeaMenuVo">
+        <result column="tee_id" property="teeId" jdbcType="INTEGER"/>
+        <result column="tea_name" property="teaName" jdbcType="VARCHAR"/>
+        <result column="tea_price" property="teaPrice" jdbcType="DOUBLE"/>
+    </resultMap>
+    <!--表名-->
+    <sql id="BASE_TABLE">
+        t_tea_menu
+    </sql>
+    <!--字段名-->
+    <sql id="BASE_COLUMN">
+        tea_id, tea_name, tea_price
+    </sql>
+    <!--增删改查-->
+    <insert id="insert" parameterType="com.jys.jyplus.heytea.vo.TeaMenuVo">
+        INSERT INTO
+        <include refid="BASE_TABLE"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            tea_name,
+            <if test="teaPrice != null">
+                tea_price,
+            </if>
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            #{teaName, jdbcType=VARCHAR},
+            <if test="teaPrice != null">
+                #{teaPrice,  jdbcType=DOUBLE},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="select" resultType="com.jys.jyplus.heytea.vo.TeaMenuVo">
+        SELECT
+        <include refid="BASE_COLUMN"/>
+        FROM
+        <include refid="BASE_TABLE"/>
+    </select>
+
+    <update id="update" parameterType="com.jys.jyplus.heytea.vo.TeaMenuVo" >
+        update t_user
+        <set >
+            <if test="userName != null" >
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null" >
+                password = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null" >
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where user_id = #{userId,jdbcType=INTEGER}
+    </update>
+
+    <delete id="deleteByTeaId" parameterType="java.lang.Integer" >
+    delete from
+        <include refid="BASE_TABLE"/>
+    where
+        tea_id = #{teaId,jdbcType=INTEGER}
+    </delete>
+
+
+</mapper>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jys.jyplus.trouble.dao.TroubleBondDao" >
+    <resultMap id="BaseResultMap" type="com.jys.jyplus.trouble.vo.TroubleBondVo">
+        <result column="trouble_id" property="troubleId" jdbcType="INTEGER"/>
+        <result column="trouble_date" property="troubleDate" jdbcType="DATE"/>
+        <result column="trouble_type" property="troubleType" jdbcType="VARCHAR"/>
+        <result column="trouble_troubler" property="troubleTroubler" jdbcType="VARCHAR"/>
+        <result column="ph_trader" property="phTrader" jdbcType="VARCHAR"/>
+        <result column="ph_manager" property="phManager" jdbcType="VARCHAR"/>
+        <result column="dealer_corp" property="dealerCorp" jdbcType="VARCHAR"/>
+        <result column="dealer_people" property="dealerPeople" jdbcType="VARCHAR"/>
+        <result column="counterparty_corp" property="counterpartyCorp" jdbcType="VARCHAR"/>
+        <result column="counterparty_people" property="counterpartyPeople" jdbcType="VARCHAR"/>
+        <result column="trouble_detail" property="troubleDetail" jdbcType="VARCHAR"/>
+        <result column="trouble_problem" property="troubleProblem" jdbcType="VARCHAR"/>
+        <result column="trouble_solve" property="troubleSolve" jdbcType="VARCHAR"/>
+        <result column="trouble_solve_people" property="troubleSolvePeople" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--表名-->
+    <sql id="BASE_TABLE">
+        t_trouble_bond
+    </sql>
+    <!--字段名-->
+    <sql id="BASE_COLUMN">
+          trouble_id,
+          trouble_date,
+          trouble_type,
+          trouble_troubler,
+          ph_trader,
+          ph_manager,
+          dealer_corp,
+          dealer_people,
+          counterparty_corp,
+          counterparty_people,
+          trouble_detail,
+          trouble_problem,
+          trouble_solve,
+          trouble_solve_people
+    </sql>
+    <!--增删改查-->
+
+    <!--<select id="select" resultMap="BaseResultMap">-->
+        <!--SELECT-->
+        <!--<include refid="BASE_COLUMN"/>-->
+        <!--FROM-->
+        <!--<include refid="BASE_TABLE"/>-->
+    <!--</select>-->
+
+    <select id="select" resultMap="BaseResultMap">
+        SELECT
+        *
+        FROM
+        t_trouble_bond
+    </select>
+
+    <insert id="insert" parameterType="com.jys.jyplus.trouble.vo.TroubleBondVo">
+        INSERT INTO
+        <include refid="BASE_TABLE"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            trouble_id,
+            trouble_date,
+            trouble_type,
+            trouble_troubler,
+            ph_trader,
+            ph_manager,
+            dealer_corp,
+            dealer_people,
+            counterparty_corp,
+            counterparty_people,
+            trouble_detail,
+            trouble_problem,
+            trouble_solve,
+            trouble_solve_people
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            #{troubleId,  jdbcType=INTEGER},
+            #{troubleDate,  jdbcType=DATE},
+            #{troubleType,  jdbcType=VARCHAR},
+            #{troubleTroubler,  jdbcType=VARCHAR},
+            #{phTrader,  jdbcType=VARCHAR},
+            #{phManager,  jdbcType=VARCHAR},
+            #{dealerCorp,  jdbcType=VARCHAR},
+            #{dealerPeople,  jdbcType=VARCHAR},
+            #{counterpartyCorp,  jdbcType=VARCHAR},
+            #{counterpartyPeople,  jdbcType=VARCHAR},
+            #{troubleDetail,  jdbcType=VARCHAR},
+            #{troubleProblem,  jdbcType=VARCHAR},
+            #{troubleSolve, jdbcType=VARCHAR},
+            #{troubleSolvePeople,  jdbcType=VARCHAR}
+        </trim>
+    </insert>
+
+    <delete id="deleteById" parameterType="java.lang.Integer" >
+        delete from
+        <include refid="BASE_TABLE"/>
+        where
+        trouble_id = #{troubleId, jdbcType=INTEGER}
+    </delete>
+
+    <update id="update" parameterType="com.jys.jyplus.heytea.vo.TeaMenuVo" >
+        update
+        <include refid="BASE_TABLE"/>
+        <set >
+            trouble_date = #{troubleDate,  jdbcType=DATE},
+            trouble_type = #{troubleType,  jdbcType=VARCHAR},
+            trouble_troubler=#{troubleTroubler,  jdbcType=VARCHAR},
+            ph_trader=#{phTrader,  jdbcType=VARCHAR},
+            ph_manager=#{phManager,  jdbcType=VARCHAR},
+            dealer_corp=#{dealerCorp,  jdbcType=VARCHAR},
+            dealer_people=#{dealerPeople,  jdbcType=VARCHAR},
+            counterparty_corp=#{counterpartyCorp,  jdbcType=VARCHAR},
+            counterparty_people=#{counterpartyPeople,  jdbcType=VARCHAR},
+            trouble_detail=#{troubleDetail,  jdbcType=VARCHAR},
+            trouble_problem=#{troubleProblem,  jdbcType=VARCHAR},
+            trouble_solve=#{troubleSolve,  jdbcType=VARCHAR},
+            trouble_solve_people=#{troubleSolvePeople,  jdbcType=VARCHAR}
+        </set>
+        where trouble_id = #{troubleId,  jdbcType=INTEGER}
+    </update>
+
+</mapper>
