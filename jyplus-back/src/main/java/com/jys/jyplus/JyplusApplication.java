@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan(basePackages = {"com.jys.jyplus.heytea.dao", "com.jys.jyplus.trouble.dao"})
+@MapperScan(basePackages = {"com.jys.jyplus.heytea.dao", "com.jys.jyplus.trouble.dao","com.jys.jyplus.wiki.dao"})
 
 public class JyplusApplication {
 

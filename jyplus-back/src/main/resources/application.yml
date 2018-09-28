@@ -1,7 +1,6 @@
 server:
   port: 8080
 
-
 spring:
     datasource:
         name: mytest
@@ -15,6 +14,7 @@ spring:
           url: jdbc:mysql://127.0.0.1:3306/mytest?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
           username: root
           password: zgsxhm
+          #phfund123456(produce)
           #���ó�ʼ����С/��С/���
           initial-size: 1
           min-idle: 1
