@@ -6,7 +6,7 @@
         <result column="id" property="wikiId" jdbcType="INTEGER"/>
         <result column="title" property="wikiTitle" jdbcType="VARCHAR"/>
         <result column="create_time" property="wikiCreateTime" jdbcType="TIMESTAMP"/>
-        <result column="last_edit_time" property="wikiLastEditTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="wikiUpdateTime" jdbcType="TIMESTAMP"/>
         <result column="content" property="wikiContent" jdbcType="VARCHAR"/>
     </resultMap>
 
@@ -19,12 +19,12 @@
         id,
         title,
         create_time,
-        last_edit_time,
+        update_time,
         content
     </sql>
     <!--增删改查-->
 
-    <select id="select" resultMap="BaseResultMap">
+    <select id="selectAll" resultMap="BaseResultMap">
         SELECT
         *
         FROM
@@ -48,9 +48,9 @@
         </trim>
         <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
             #{wikiId, jdbcType=INTEGER},
-            #{wikiTitile, jdbcType=VARCHAR},
+            #{wikiTitle, jdbcType=VARCHAR},
             #{wikiCreateTime, jdbcType=TIMESTAMP},
-            #{wikiLastEditTime, jdbcType=TIMESTAMP},
+            #{wikiUpdateTime, jdbcType=TIMESTAMP},
             #{wikiContent, jdbcType=VARCHAR},
         </trim>
     </insert>
@@ -66,9 +66,9 @@
         update
         <include refid="BASE_TABLE"/>
         <set >
-            title=#{wikiTitile, jdbcType=VARCHAR},
+            title=#{wikiTitle, jdbcType=VARCHAR},
             create_time=#{wikiCreateTime, jdbcType=TIMESTAMP},
-            last_edit_time=#{wikiLastEditTime, jdbcType=TIMESTAMP},
+            update_time=#{wikiUpdateTime, jdbcType=TIMESTAMP},
             content=#{wikiContent, jdbcType=VARCHAR}
         </set>
         where id=#{wikiId, jdbcType=INTEGER}

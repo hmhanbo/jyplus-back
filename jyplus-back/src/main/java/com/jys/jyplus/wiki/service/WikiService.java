@@ -13,6 +13,8 @@ public interface WikiService {
 
     List<WikiVo> selectById(Integer o);
 
+    List<WikiVo> selectAll();
+
     int add(WikiVo o);
 
     int delete(String o);

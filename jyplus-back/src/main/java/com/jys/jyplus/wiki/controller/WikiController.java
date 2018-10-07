@@ -21,12 +21,18 @@ public class WikiController {
     @Autowired
     private WikiService WikiService;
 
-    @ResponseBody
-    @RequestMapping(value = "/{id}")
-    public List<WikiVo> select(@PathVariable("id") Integer o){
-       return WikiService.selectById(o);
-//        request.getQueryString()
+//    @ResponseBody
+//    @RequestMapping(value = "/{id}")
+//    public List<WikiVo> selectById(@PathVariable("id") Integer o){
+//       return WikiService.selectById(o);
+////        request.getQueryString()
+//
+//    }
 
+    @ResponseBody
+    @RequestMapping(method = RequestMethod.GET)
+    public List<WikiVo> selectAll(){
+        return WikiService.selectAll();
     }
 
     @ResponseBody

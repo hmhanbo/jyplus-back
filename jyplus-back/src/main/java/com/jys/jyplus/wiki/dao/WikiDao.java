@@ -12,6 +12,8 @@ import java.util.List;
 public interface WikiDao {
     List<WikiVo> selectById(Integer o);
 
+    List<WikiVo> selectAll();
+
     int insert(WikiVo o);
 
     int delete(String o);

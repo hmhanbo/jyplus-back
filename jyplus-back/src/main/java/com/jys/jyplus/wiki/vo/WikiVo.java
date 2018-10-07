@@ -5,16 +5,24 @@
 
 package com.jys.jyplus.wiki.vo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.sql.Timestamp;
 
 public class WikiVo {
+    @JsonProperty("id")
     private Integer wikiId;
+
+    @JsonProperty("title")
     private String wikiTitle;
-    private String wikiTags;
+
+    @JsonProperty("beginTime")
     private Timestamp wikiCreateTime;
-    private Timestamp wikiLastEditTime;
-    private Boolean wikiHidden;
-    private String wikiExcerpt;
+
+    @JsonProperty("updateTime")
+    private Timestamp wikiUpdateTime;
+
+    @JsonProperty("content")
     private String wikiContent;
 
     public Integer getWikiId() {
@@ -33,14 +41,6 @@ public class WikiVo {
         this.wikiTitle = wikiTitle;
     }
 
-    public String getWikiTags() {
-        return wikiTags;
-    }
-
-    public void setWikiTags(String wikiTags) {
-        this.wikiTags = wikiTags;
-    }
-
     public Timestamp getWikiCreateTime() {
         return wikiCreateTime;
     }
@@ -49,28 +49,12 @@ public class WikiVo {
         this.wikiCreateTime = wikiCreateTime;
     }
 
-    public Timestamp getWikiLastEditTime() {
-        return wikiLastEditTime;
+    public Timestamp getWikiUpdateTime() {
+        return wikiUpdateTime;
     }
 
-    public void setWikiLastEditTime(Timestamp wikiLastEditTime) {
-        this.wikiLastEditTime = wikiLastEditTime;
-    }
-
-    public Boolean getWikiHidden() {
-        return wikiHidden;
-    }
-
-    public void setWikiHidden(Boolean wikiHidden) {
-        this.wikiHidden = wikiHidden;
-    }
-
-    public String getWikiExcerpt() {
-        return wikiExcerpt;
-    }
-
-    public void setWikiExcerpt(String wikiExcerpt) {
-        this.wikiExcerpt = wikiExcerpt;
+    public void setWikiUpdateTime(Timestamp wikiUpdateTime) {
+        this.wikiUpdateTime = wikiUpdateTime;
     }
 
     public String getWikiContent() {

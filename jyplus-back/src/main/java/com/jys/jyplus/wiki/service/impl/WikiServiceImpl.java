@@ -25,6 +25,12 @@ public class WikiServiceImpl implements WikiService {
     }
 
     @Override
+    public List<WikiVo> selectAll(){
+        return WikiDao.selectAll();
+    }
+
+
+    @Override
     public int add(WikiVo o){
         return WikiDao.insert(o);
     }
