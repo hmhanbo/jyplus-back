@@ -16,11 +16,11 @@ public class WikiVo {
     @JsonProperty("title")
     private String wikiTitle;
 
-    @JsonProperty("beginTime")
-    private Timestamp wikiCreateTime;
+    @JsonProperty("createTime")
+    private String wikiCreateTime;
 
     @JsonProperty("updateTime")
-    private Timestamp wikiUpdateTime;
+    private String wikiUpdateTime;
 
     @JsonProperty("content")
     private String wikiContent;
@@ -41,19 +41,19 @@ public class WikiVo {
         this.wikiTitle = wikiTitle;
     }
 
-    public Timestamp getWikiCreateTime() {
+    public String getWikiCreateTime() {
         return wikiCreateTime;
     }
 
-    public void setWikiCreateTime(Timestamp wikiCreateTime) {
+    public void setWikiCreateTime(String wikiCreateTime) {
         this.wikiCreateTime = wikiCreateTime;
     }
 
-    public Timestamp getWikiUpdateTime() {
+    public String getWikiUpdateTime() {
         return wikiUpdateTime;
     }
 
-    public void setWikiUpdateTime(Timestamp wikiUpdateTime) {
+    public void setWikiUpdateTime(String wikiUpdateTime) {
         this.wikiUpdateTime = wikiUpdateTime;
     }
 

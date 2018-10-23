@@ -16,7 +16,7 @@ public interface WikiDao {
 
     int insert(WikiVo o);
 
-    int delete(String o);
+    int delete(Integer o);
 
     int update(WikiVo o);
 

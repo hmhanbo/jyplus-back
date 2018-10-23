@@ -17,7 +17,7 @@ public interface WikiService {
 
     int add(WikiVo o);
 
-    int delete(String o);
+    int delete(Integer o);
 
     int update(WikiVo o);
 }

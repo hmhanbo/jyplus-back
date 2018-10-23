@@ -43,7 +43,7 @@ public class WikiController {
 
     @ResponseBody
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
-    public int deleteById(@RequestParam("wikiTitle") String o){
+    public int deleteById(@RequestParam("wikiId") Integer o){
         return WikiService.delete(o);
     }
 

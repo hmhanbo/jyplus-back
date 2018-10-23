@@ -5,8 +5,8 @@
     <resultMap id="BaseResultMap" type="com.jys.jyplus.wiki.vo.WikiVo">
         <result column="id" property="wikiId" jdbcType="INTEGER"/>
         <result column="title" property="wikiTitle" jdbcType="VARCHAR"/>
-        <result column="create_time" property="wikiCreateTime" jdbcType="TIMESTAMP"/>
-        <result column="update_time" property="wikiUpdateTime" jdbcType="TIMESTAMP"/>
+        <result column="create_time" property="wikiCreateTime" jdbcType="VARCHAR"/>
+        <result column="update_time" property="wikiUpdateTime" jdbcType="VARCHAR"/>
         <result column="content" property="wikiContent" jdbcType="VARCHAR"/>
     </resultMap>
 
@@ -49,17 +49,17 @@
         <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
             #{wikiId, jdbcType=INTEGER},
             #{wikiTitle, jdbcType=VARCHAR},
-            #{wikiCreateTime, jdbcType=TIMESTAMP},
-            #{wikiUpdateTime, jdbcType=TIMESTAMP},
+            #{wikiCreateTime, jdbcType=VARCHAR},
+            #{wikiUpdateTime, jdbcType=VARCHAR},
             #{wikiContent, jdbcType=VARCHAR},
         </trim>
     </insert>
 
-    <delete id="deleteById" parameterType="java.lang.Integer" >
+    <delete id="delete" parameterType="java.lang.Integer" >
         delete from
         <include refid="BASE_TABLE"/>
         where
-        trouble_id = #{troubleId, jdbcType=INTEGER}
+        id = #{wikiId, jdbcType=INTEGER}
     </delete>
 
     <update id="update" parameterType="com.jys.jyplus.wiki.vo.WikiVo" >
@@ -67,8 +67,8 @@
         <include refid="BASE_TABLE"/>
         <set >
             title=#{wikiTitle, jdbcType=VARCHAR},
-            create_time=#{wikiCreateTime, jdbcType=TIMESTAMP},
-            update_time=#{wikiUpdateTime, jdbcType=TIMESTAMP},
+            create_time=#{wikiCreateTime, jdbcType=VARCHAR},
+            update_time=#{wikiUpdateTime, jdbcType=VARCHAR},
             content=#{wikiContent, jdbcType=VARCHAR}
         </set>
         where id=#{wikiId, jdbcType=INTEGER}

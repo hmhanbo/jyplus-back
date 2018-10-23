@@ -36,7 +36,7 @@ public class WikiServiceImpl implements WikiService {
     }
 
     @Override
-    public int delete(String o){
+    public int delete(Integer o){
         return WikiDao.delete(o);
     }
 
